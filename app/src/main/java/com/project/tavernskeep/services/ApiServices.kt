@@ -8,7 +8,7 @@ import retrofit2.http.GET
 interface ApiServices {
 
     @GET("movies.json")
-    suspend fun getMovies() : List<MovieModel>
+    suspend fun getMovies() : List<ProductModel>
 
     companion object {
         private var apiServices:ApiServices? = null
