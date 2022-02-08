@@ -63,7 +63,7 @@ fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id:
                     fontWeight = FontWeight.Bold,
                 )
                 Text(
-                    text = employeeModel.name,
+                    text = employeeModel.nombre,
                     style = MaterialTheme.typography.caption,
                     modifier = Modifier.background(
                         Color.White
@@ -71,7 +71,7 @@ fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id:
                         .padding(4.dp),
                 )
                 Text(
-                    text = employeeModel.lastName,
+                    text = employeeModel.apellidos,
                     style = MaterialTheme.typography.body1,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
@@ -85,7 +85,7 @@ fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id:
 @Composable
 fun DefaultPreview() {
     TavernSkeepTheme {
-        val employee = EmployeeModel("b", "b", "Iván", "García", 777, "admin", "i@gmail.com")
+        val employee = EmployeeModel("a", "444222111A", "1234", "DJ", "Sapliqui", "66655666", "Chad", "sapliqui@gmail.com")
         EmployeeItem(navController = rememberNavController(), employeeModel = employee, id = 0)
     }
 }

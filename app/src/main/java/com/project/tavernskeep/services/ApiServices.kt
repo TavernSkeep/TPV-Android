@@ -5,20 +5,20 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-interface ApiEmployee {
+interface ApiServices {
 
-    @GET("employees.json")
+    @GET("empleado")
     suspend fun getEmployee() : List<EmployeeModel>
 
     companion object {
-        private var apiServices:ApiEmployee? = null
+        private var apiServices:ApiServices? = null
 
-        fun getInstance() : ApiEmployee {
+        fun getInstance() : ApiServices {
             if(apiServices == null) {
                 apiServices = Retrofit.Builder()
-                    .baseUrl("http://25.81.98.245:8080/empleado/")
+                    .baseUrl("http://25.81.98.245:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
-                    .build().create(ApiEmployee::class.java)
+                    .build().create(ApiServices::class.java)
             }
 
             return apiServices!!

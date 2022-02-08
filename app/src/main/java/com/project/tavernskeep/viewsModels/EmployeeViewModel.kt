@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import com.project.tavernskeep.models.EmployeeModel
-import com.project.tavernskeep.services.ApiEmployee
+import com.project.tavernskeep.services.ApiServices
 import java.lang.Exception
 
 class EmployeeViewModel : ViewModel(){
@@ -16,7 +16,7 @@ class EmployeeViewModel : ViewModel(){
 
     fun getEmployeeList() {
         viewModelScope.launch{
-            val apiServices = ApiEmployee.getInstance()
+            val apiServices = ApiServices.getInstance()
             try {
                 val employeeList = apiServices.getEmployee()
                 employeeModelListResponse = employeeList
