@@ -1,5 +1,7 @@
 package com.project.tavernskeep.viewsModels
 
+import android.os.Debug
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,6 +20,7 @@ class EmployeeViewModel : ViewModel(){
         viewModelScope.launch{
             val apiServices = ApiServices.getInstance()
             try {
+                //Log.d("empleado", "sdafafasdfsadsa")
                 val employeeList = apiServices.getEmployee()
                 employeeModelListResponse = employeeList
             }

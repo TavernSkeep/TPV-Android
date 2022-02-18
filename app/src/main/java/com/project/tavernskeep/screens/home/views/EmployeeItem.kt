@@ -27,10 +27,10 @@ import com.project.tavernskeep.ui.theme.TavernSkeepTheme
 fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id: Int) {
     Card(modifier = Modifier.padding(8.dp, 4.dp)
         .fillMaxWidth()
-        .height(110.dp)
+        .height(110.dp),/*
         .clickable {
             navController.navigate(route = "${Screen.Detail.route}/${id}")
-        },
+        },*/
         shape = RoundedCornerShape(8.dp),
         elevation = 4.dp,
     ) {
@@ -65,6 +65,7 @@ fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id:
                 Text(
                     text = employeeModel.nombre,
                     style = MaterialTheme.typography.caption,
+                    color = Color.Red,
                     modifier = Modifier.background(
                         Color.White
                     )
@@ -75,6 +76,7 @@ fun EmployeeItem(navController: NavController, employeeModel: EmployeeModel, id:
                     style = MaterialTheme.typography.body1,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
+                    color = Color.Green,
                 )
             }
         }

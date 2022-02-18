@@ -10,7 +10,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 fun EmployeeList (navController: NavController, employeeModelList: List<EmployeeModel>) {
     LazyColumn {
         itemsIndexed(items = employeeModelList) {
-                index, item -> EmployeeItem(id = index, navController = navController, employeeModel = item)
+                index, item -> EmployeeItem(navController = navController, employeeModel = item, id = index)
         }
     }
 }

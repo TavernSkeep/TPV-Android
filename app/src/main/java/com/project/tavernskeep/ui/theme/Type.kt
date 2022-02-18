@@ -2,11 +2,17 @@ package com.project.tavernskeep.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.project.tavernskeep.R
 
 // Set of Material typography styles to start with
+val Arcade = FontFamily(
+    Font(R.font.arcade)
+)
+
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
