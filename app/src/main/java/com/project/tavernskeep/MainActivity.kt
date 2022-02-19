@@ -1,5 +1,6 @@
 package com.project.tavernskeep
 
+import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Insets.add
 import android.graphics.drawable.AnimatedImageDrawable
@@ -7,7 +8,9 @@ import android.inputmethodservice.Keyboard
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.os.Handler
 import android.view.Gravity
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -60,6 +63,7 @@ import com.project.tavernskeep.viewsModels.EmployeeViewModel
 class MainActivity : ComponentActivity() {
 
     private val employeeViewModel by viewModels<EmployeeViewModel>()
+    private val employeeModel by viewModels<EmployeeViewModel>()
     private lateinit var navController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +75,9 @@ class MainActivity : ComponentActivity() {
                     /*Spacer(modifier = Modifier
                         .size(9.dp)
                         .padding(100.dp))*/
-                    loginMenu(LocalConfiguration.current.screenHeightDp, LocalConfiguration.current.screenWidthDp)
+                    loginMenu(LocalConfiguration.current.screenHeightDp,
+                        LocalConfiguration.current.screenWidthDp,
+                        employeeModel)
                     //Greeting(name = "uwu")
                 }
                 /*employeeViewModel.getEmployeeList()
@@ -113,25 +119,26 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
+/*
 @Preview(showBackground = true)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreview(employeeModel: EmployeeViewModel) {
     TavernSkeepTheme {
         Box(/*modifier = Modifier.padding(9.dp)*/) {
             imageBackground()
             /*Spacer(modifier = Modifier
                 .size(9.dp)
                 .padding(100.dp))*/
-            loginMenu(LocalConfiguration.current.screenHeightDp, LocalConfiguration.current.screenWidthDp)
+            loginMenu(LocalConfiguration.current.screenHeightDp, LocalConfiguration.current.screenWidthDp, employeeModel)
             //Greeting(name = "uwu")
         }
     }
 }
+*/
 
-@Composable()
-fun loginMenu(f1: Int, f2: Int) {
+@Composable
+fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel) {
 
     var aux: Int = if(LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT)
         f2
@@ -214,7 +221,7 @@ fun loginMenu(f1: Int, f2: Int) {
                             backgroundColor = Color.Transparent
                         ),
                         contentPadding = PaddingValues(),
-                        onClick = { loginClicked()}){
+                        onClick = { loginClicked(employeeModel, dni, pwd, context)}){
                         Box(
                             modifier = Modifier
                                 .background(brush = Brush.horizontalGradient(
@@ -235,8 +242,8 @@ fun loginMenu(f1: Int, f2: Int) {
     }
 }
 
-fun loginClicked() {
-
+fun loginClicked(employeeModel: EmployeeViewModel, dni: String, pwd: String, context: Context) {
+    employeeModel.get1Employee(dni, pwd, context)
 }
 
 @Composable
