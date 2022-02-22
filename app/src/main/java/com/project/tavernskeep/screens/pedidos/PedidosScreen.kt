@@ -78,7 +78,7 @@ fun PedidosScreen(navController: NavController, productosModel : ProductosViewMo
             contentDescription = "Añadir el pedido a la mesa",tint = MaterialTheme.colors.onBackground,
             modifier = Modifier
                 .clickable { /*ticketModel.actualizeTicket(ticketModel.ticketModel.codigo)*/
-                    val y = Random.nextInt(0, 999999999).toString()
+                    val y = Random.nextInt(100, 999999999).toString()
                                 if(mesasModel.editandoMesas) {
                                     ticketModel.uploadTicket(
                                         TicketModel(_id = "T$y",

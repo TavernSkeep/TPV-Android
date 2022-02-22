@@ -66,7 +66,7 @@ fun MesasItem(navController: NavController, mesasModel: MesasModel, mesas: Mesas
         .fillMaxWidth()
         .height(110.dp)
         .clickable {
-            mesas.mesasModel._id = mesasModel._id
+            //mesas.mesasModel._id = mesasModel._id
             mesas.mesasModel.codigo = mesasModel.codigo
             mesas.mesasModel.ticket_actual = mesasModel.ticket_actual
             mesas.mesasModel.is_reservada = mesasModel.is_reservada

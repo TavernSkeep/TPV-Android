@@ -2,7 +2,7 @@ package com.project.tavernskeep.models
 
 
 data class TicketModel (
-    var _id: String,
+    val _id: String,
     val codigo: String,
     val mesa: String,
     var listaproductos: MutableList<LineaTicketModel>,
