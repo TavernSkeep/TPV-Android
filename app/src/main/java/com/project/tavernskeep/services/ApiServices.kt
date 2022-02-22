@@ -68,7 +68,9 @@ interface ApiServices {
         fun getInstance() : ApiServices {
             if(apiServices == null) {
                 apiServices = Retrofit.Builder()
-                    .baseUrl("http://172.20.10.5:3000/")
+                        //tenéis que conectar el móvil a la misma red que el ordenador en el que abráis el servidor y poner su IP
+                        //+ puerto en la "baseUrl"
+                    .baseUrl("http://localhost:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build().create(ApiServices::class.java)
             }
