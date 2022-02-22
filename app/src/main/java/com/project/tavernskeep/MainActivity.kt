@@ -28,6 +28,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -228,10 +229,10 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
                                             )
                                         )
                                     )
-                                    .padding(horizontal = 16.dp, vertical = 11.dp),
+                                    .padding(horizontal = 11.dp, vertical = 7.dp),
                                 contentAlignment = Alignment.Center
                             ){
-                                Text(text = "Start", color = Color.White, style = TextStyle(fontFamily = Arcade))
+                                Text(text = "Start", color = Color.White, style = TextStyle(fontFamily = Arcade), fontSize = 10.sp)
                             }
                         }
                     }

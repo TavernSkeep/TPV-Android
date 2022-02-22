@@ -48,7 +48,7 @@ fun MesasScreen(navController: NavController, mesasModel: MesasViewModel, contex
                 Spacer(modifier = Modifier.fillMaxWidth(0.24f))
             else
                 Spacer(modifier = Modifier.fillMaxWidth(0.37f))
-            Text(text = "Mesas", style = TextStyle(fontFamily = Arcade), color = Color.White, fontSize = 25.sp)
+            Text(text = "Mesas", style = TextStyle(fontFamily = Arcade), color = MaterialTheme.colors.onBackground, fontSize = 25.sp)
         }
     }) {
         //val aux: List<MesasModel> = mesasModel.mesasModelListResponse.sortedBy {M -> M.codigo}.toList()
