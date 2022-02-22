@@ -123,6 +123,7 @@ fun PedidosScreen(navController: NavController, productosModel : ProductosViewMo
 
 fun refreshMesas(navController: NavController, ticketModel: TicketViewModel, productosModel: ProductosViewModel) {
     //ticketModel.ticketModel.listaproductos.clear()
+    //ticketModel.ticketModel._id = ""
     navController.navigate(route = Screen.Mesas.route)
     productosModel.categoriaClicked = false
 }

@@ -49,7 +49,7 @@ fun AppNavigation(mesasModel: MesasViewModel, productosModel: ProductosViewModel
                 if(i == 0){
                     if(id == "uwu"){
                         ticketModel.lineaTicketList.clear()
-                        ticketModel.ticketModel._id = ""
+                        //ticketModel.ticketModel._id = ""
                     Log.d("CLEAR AQUÍ", ticketModel.ticketModel.toString())}
                 }
                 else if(i > 2) {

@@ -142,6 +142,16 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
         else
             1
 
+        var aux2: Int = if(LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT)
+            19
+        else
+            11
+
+        var aux3: Int = if(LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT)
+            16
+        else
+            8
+
         var dni by remember { mutableStateOf("") }
         var pwd by remember { mutableStateOf("") }
 
@@ -213,6 +223,7 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
                         )
                         Spacer(modifier = Modifier.height(5.dp))
                         Button(
+                            modifier = Modifier.height(50.dp).width(90.dp),
                             shape = RoundedCornerShape(30),
                             colors = ButtonDefaults.buttonColors(
                                 backgroundColor = Color.Transparent
@@ -229,7 +240,7 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
                                             )
                                         )
                                     )
-                                    .padding(horizontal = 11.dp, vertical = 7.dp),
+                                    .padding(horizontal = aux2.dp, vertical = aux3.dp),
                                 contentAlignment = Alignment.Center
                             ){
                                 Text(text = "Start", color = Color.White, style = TextStyle(fontFamily = Arcade), fontSize = 10.sp)
