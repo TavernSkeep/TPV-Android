@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1578125" />
         <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable-v24/splash_background.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1578125" />
+        <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable/logo.xml" value="0.1578125" />
+        <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable/logo_launcher.xml" value="0.1578125" />
         <entry key="..\:/Users/thewo/AndroidStudioProjects/TavernSkeep/app/src/main/res/drawable/splash_background.xml" value="0.264" />
       </map>
     </option>
