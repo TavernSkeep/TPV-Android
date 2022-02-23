@@ -1,11 +1,10 @@
 package com.project.tavernskeep.screens.pedidos
 
 import android.content.res.Configuration
-import androidx.activity.viewModels
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Box
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -14,13 +13,11 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.project.tavernskeep.models.LineaTicketModel
 import com.project.tavernskeep.models.MesasModel
 import com.project.tavernskeep.models.ProductosModel
 import com.project.tavernskeep.models.TicketModel
@@ -31,7 +28,6 @@ import com.project.tavernskeep.ui.theme.Arcade
 import com.project.tavernskeep.viewsModels.MesasViewModel
 import com.project.tavernskeep.viewsModels.ProductosViewModel
 import com.project.tavernskeep.viewsModels.TicketViewModel
-import java.lang.StringBuilder
 import kotlin.random.Random
 
 @ExperimentalMaterialApi
@@ -81,21 +77,26 @@ fun PedidosScreen(navController: NavController, productosModel : ProductosViewMo
                     val y = Random.nextInt(100, 999999999).toString()
                                 if(mesasModel.editandoMesas) {
                                     ticketModel.uploadTicket(
-                                        TicketModel(_id = "T$y",
-                                            "T$y", mesa = mesasModel.mesasModel._id, ticketModel.lineaTicketList, ticketModel.currentDate))
+                                        TicketModel(_id = "T" + y,
+                                            codigo = "T" + y, mesa = mesasModel.mesasModel._id, listaproductos = ticketModel.lineaTicketList, fecha = ticketModel.currentDate))
                                     if(ticketModel.lineaTicketList.isEmpty()){
                                         mesasModel.mesasModel.ticket_actual = "uwu"
                                     }else {
-                                        mesasModel.mesasModel.ticket_actual = y
+                                        mesasModel.mesasModel.ticket_actual = "T" + y
                                     }
-                                    mesasModel.actualizeMesa(MesasModel(_id = mesasModel.mesasModel._id, zona = mesasModel.mesasModel.zona, n_sillas = mesasModel.mesasModel.n_sillas, is_reservada = mesasModel.mesasModel.is_reservada, ticket_actual = "T"+mesasModel.mesasModel.ticket_actual, codigo = mesasModel.mesasModel.codigo))
+                                    Log.d("ID MESA JIJI", mesasModel.mesasModel._id)
+                                    mesasModel.actualizeMesa(MesasModel(_id = mesasModel.mesasModel._id, zona = mesasModel.mesasModel.zona, n_sillas = mesasModel.mesasModel.n_sillas, is_reservada = mesasModel.mesasModel.is_reservada, ticket_actual = mesasModel.mesasModel.ticket_actual, codigo = mesasModel.mesasModel.codigo))
                                 }else{
-                                    ticketModel.actualizeTicket(TicketModel(_id = ticketModel.ticketModel._id, codigo = ticketModel.ticketModel.codigo, mesa = mesasModel.mesasModel._id, listaproductos = ticketModel.lineaTicketList, fecha = ticketModel.currentDate))
+                                    ticketModel.actualizeTicket(TicketModel(_id = ticketModel.ticketModel._id, codigo = ticketModel.ticketModel.codigo, mesa = mesasModel.mesasModel.codigo, listaproductos = ticketModel.lineaTicketList, fecha = ticketModel.currentDate))
                                     if(ticketModel.lineaTicketList.isEmpty()){
                                         mesasModel.mesasModel.ticket_actual = "uwu"
+                                        //mesasModel.editandoMesas = true
+                                        Log.d("ID MESA JIJI", mesasModel.mesasModel._id)
                                         mesasModel.actualizeMesa(MesasModel(_id = mesasModel.mesasModel._id, zona = mesasModel.mesasModel.zona, n_sillas = mesasModel.mesasModel.n_sillas, is_reservada = mesasModel.mesasModel.is_reservada, ticket_actual = mesasModel.mesasModel.ticket_actual, codigo = mesasModel.mesasModel.codigo))
                                     }
                                     }
+                                    navController.navigate(route = Screen.Mesas.route)
+                                    productosModel.categoriaClicked = false
                                 }
                 .fillMaxHeight(1f)
                 .fillMaxWidth(1f))

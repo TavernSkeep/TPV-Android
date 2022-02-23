@@ -54,8 +54,11 @@ fun AppNavigation(mesasModel: MesasViewModel, productosModel: ProductosViewModel
                 }
                 else if(i > 2) {
                     //ticketModel.ticketModel.listaproductos.clear()
+                    Log.d("ID TICKET", ticketModel.ticketModel._id)
+                    Log.d("TICKET ACTUAL MESA", mesasModel.mesasModel.ticket_actual)
                         if(ticketModel.ticketModel._id != mesasModel.mesasModel.ticket_actual){
                             ticketModel.get1Ticket(id!!)
+
                     Log.d("ESTOY HACIENDO EL GET", ticketModel.ticketModel.toString())}
                 }
                 //Log.d("TICKET CARGADO", ticketModel.ticketModel.toString())

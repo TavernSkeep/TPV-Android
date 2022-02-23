@@ -24,9 +24,9 @@ class TicketViewModel : ViewModel() {
     //val aux2: LineaTicketModel = LineaTicketModel("qweqed", 12, 64.00, 1231.00)
     var lineaTicketList: MutableList<LineaTicketModel> by mutableStateOf(mutableListOf())
     var ticketModel: TicketModel by mutableStateOf(TicketModel(
-            "uwu",
-            "uwu",
-            "uwu",
+            "T1241241251",
+            "T1241241251",
+            "mesa1",
             lineaTicketList,
             currentDate,
         )
