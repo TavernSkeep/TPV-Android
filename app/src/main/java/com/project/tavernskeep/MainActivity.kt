@@ -143,14 +143,14 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
             1
 
         var aux2: Int = if(LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT)
-            19
+            17
         else
-            11
+            9
 
         var aux3: Int = if(LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT)
-            16
+            14
         else
-            8
+            7
 
         var dni by remember { mutableStateOf("") }
         var pwd by remember { mutableStateOf("") }
@@ -256,7 +256,7 @@ fun loginMenu(f1: Int, f2: Int, employeeModel: EmployeeViewModel, employeeCompro
 
 fun loginClicked(employeeModel: EmployeeViewModel, employeeComp: Boolean, dni: String, pwd: String, context: Context) {
     employeeModel.get1Employee(dni, pwd, context)
-    if(employeeModel.loginFailures == 1){
+    if(employeeModel.loginFailures == 0){
         exitProcess(0)
     }
 
